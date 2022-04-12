@@ -18,13 +18,26 @@ import { ExternalLinkIcon, ChevronDownIcon } from '@chakra-ui/icons'
 
 // api key 178d76ed6e3419b81da19230acfe0964
 
+const dateBuilder = (d) => {
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    let day = days[d.getDay()];
+    let date = d.getDate();
+    let month = months[d.getMonth()];
+    let year = d.getFullYear();
+
+    return `${day} ${date} ${month} ${year}`
+  }
+
+
 class MainContent extends Component {
     render() {
         return (
             <Box pt={10}>
                 <Container maxW='2xl' centerContent >
                     <Text fontWeight={'bold'} >Cartagena, Colombia</Text>
-                    <Text as={'i'}>11-April-2022</Text>
+                    <Text as={'i'}>{ dateBuilder(new Date()) }</Text>
 
                     <Box  
                         bgColor={'gray.100'}
